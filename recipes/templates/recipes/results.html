@@ -1,0 +1,24 @@
+{% extends "recipes/base.html" %}
+{% block content%}
+
+    
+    <div class="card" style="width: 18rem;">
+        {% csrf_token %}
+        {% for result in results %}
+        <div class="card-body">
+            <h5 class="card-title">{{ result.title }}</h5>
+            <p class="card-text">
+            Ready in: {{ result.readyInMinutes }} min
+            <br>
+            Servings: {{ result.servings }}
+            </p>
+            <a href="/ingredients_{{result.id}}" class="btn btn-primary">Recipe Ingredients</a>
+        </div>
+
+
+        {% endfor %}
+
+    </div>
+{% endblock %}
+
+
